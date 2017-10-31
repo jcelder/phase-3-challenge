@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV='test && mocha --exit'"
+    "test": "export NODE_ENV='test && mocha --exit'",
+    "db:create": "createdb grocery && psql grocery < db/schema.sql",
+    "db:reset": "dropdb grocery && npm run db:create"
   },
   "keywords": [],
   "author": "",
