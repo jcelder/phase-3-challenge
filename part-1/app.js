@@ -19,11 +19,12 @@ app.get('/api/days/:day', (req, res) => {
   res.set('Content-Type', 'text/plain')
   daysOfWeek[day] === undefined
     ? res.status(400).send(`'${day}' is not a valid day!`)
-    : res.send(`${daysOfWeek[day]}`)
+    : res.status(200).send(`${daysOfWeek[day]}`)
 })
 
 app.post('/api/array/concat', (req, res) => {
-
+  const arr1 = req.body.array1
+  const arr2 = req.body.array2
 })
 
 app.listen(3000, () => {
