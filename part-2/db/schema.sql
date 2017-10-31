@@ -23,5 +23,5 @@ CREATE TABLE orders(
 CREATE TABLE order_items(
   id SERIAL PRIMARY KEY,
   order_id INT REFERENCES orders(order_id),
-  product_id INT REFERENCES products(products_id)
+  product_id INT REFERENCES products(product_id)
 );
