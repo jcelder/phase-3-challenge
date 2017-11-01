@@ -20,6 +20,8 @@ const realShoppers = () => {
 }
 
 const shopperOrders = (id) => {
-  return Promise.resolve('Test Promise Please Ignore')
+  return db.any(`SELECT order_items.order_id AS "order id", SUM(products.price) AS "total price" FROM orders
+    JOIN order_items ON(order_items.order_id = orders.order_id) JOIN products ON(products.product_id = order_items.product_id)
+    WHERE orders.shopper_id=$1 GROUP BY order_items.order_id;`, [id])
 }
 module.exports = { listProductsBySection, realShoppers, shopperOrders }
