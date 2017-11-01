@@ -3,8 +3,9 @@ const { expect } = require('chai')
 const { db, pgp } = require('../db/db_connection.js')
 const { initDB } = require('./db/database_test_utils.js')
 const
-{ listProductsBySection,
-    realShoppers } = require('../db/database.js')
+  { listProductsBySection,
+    realShoppers,
+    shopperOrders } = require('../db/database.js')
 
 describe('listProductsBySection()', () => {
   const section = 'Dairy'
@@ -28,12 +29,12 @@ describe('realShoppers()', () => {
       .then(() => realShoppers())
     done()
   })
-  it('Shopper Josh should have 2 orders and be in position 0 of the array', () => {
+  it('Shopper Josh should have 2 orders and be in position 0 of the resultant array', () => {
     return realPromise.then((results) => {
       expect(results[0]['number of orders']).to.equal('2')
     })
   })
-  it('Shopper Jon should have 1 order and be in position 1 of the array', () => {
+  it('Shopper Jon should have 1 order and be in position 1 of the resultant array', () => {
     return realPromise.then((results) => {
       expect(results[1]['number of orders']).to.equal('1')
     })
@@ -50,8 +51,17 @@ describe('shopperOrders()', () => {
   })
   it('should return an array of length 2 when given the shopper ID of 1', () => {
     return shopperPromise.then((results) => {
-      console.log(results)
       expect(results.length).to.equal(2)
+    })
+  })
+  it('should have order id 1 in position 0 of the resultant array', () => {
+    return shopperPromise.then((results) => {
+      expect(results[0]['order id']).to.equal(1)
+    })
+  })
+  it('should have a total price of $12.98 in position 1 of the resultant array', () => {
+    return shopperPromise.then((results) => {
+      expect(results[1]['total price']).to.equal('$12.98')
     })
   })
 })
