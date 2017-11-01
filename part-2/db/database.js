@@ -7,5 +7,7 @@ const { db, pgp } = require('./db_connection.js')
  * When no section is found, it resolves with an empty array.
  */
 const listProductsBySection = (section) => {
-  return Promise.resolve('Test promise please ignore.')
+  return db.any('SELECT name AS "Product Name", section AS "Section" FROM products WHERE section=$1', [section])
 }
+
+module.exports = { listProductsBySection }
