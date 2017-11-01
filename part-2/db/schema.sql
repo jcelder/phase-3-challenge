@@ -1,8 +1,3 @@
-CREATE TABLE sections(
-  section_id SERIAL PRIMARY KEY,
-  section_name TEXT NOT NULL UNIQUE
-);
-
 CREATE TABLE shoppers(
   shopper_id SERIAL PRIMARY KEY,
   shopper_name TEXT NOT NULL
@@ -10,9 +5,9 @@ CREATE TABLE shoppers(
 
 CREATE TABLE products(
   product_id SERIAL PRIMARY KEY,
-  product_name TEXT NOT NULL,
-  product_price MONEY NOT NULL,
-  section_id INT REFERENCES sections(section_id)
+  name TEXT NOT NULL,
+  price MONEY NOT NULL,
+  section TEXT
 );
 
 CREATE TABLE orders(
