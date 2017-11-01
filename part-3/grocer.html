@@ -11,7 +11,7 @@
       <h1>Grocer</h1>
       <button type="button" id="cart-button">
         Cart
-        &nbsp;<span id="cart-item-count">(3)</span>
+        &nbsp;<span id="cart-item-count">(0)</span>
       </button>
     </header>
 
@@ -19,57 +19,57 @@
       <div class="sidebar">
         <ul>
           <h4>Sections</h4>
-          <li>Produce</li>
-          <li>Deli</li>
-          <li>Frozen</li>
+          <li><a href="#produce">Produce</a></li>
+          <li><a href="#deli">Deli</a></li>
+          <li><a href="#frozen">Frozen</a></li>
         </ul>
       </div>
       <div class="content">
         <h1>Groceries</h1>
-        <ul class="item-section">
+        <ul class="item-section" id="produce">
           <h3>Produce</h3>
           <li class="item flex flex-row-between">
             <span class="item-name">Onions</span>
             <span class="item-price">$1.11</span>
-            <button type="button">Add to cart</button>
+            <button type="button" class="item-btn">Add to cart</button>
           </li>
           <li class="item flex flex-row-between">
             <span class="item-name">Tomatoes</span>
             <span class="item-price">$1.56</span>
-            <button type="button">Add to cart</button>
+            <button type="button" class="item-btn">Add to cart</button>
           </li>
           <li class="item flex flex-row-between">
             <span class="item-name">Carrots</span>
             <span class="item-price">$2.88</span>
-            <button type="button">Add to cart</button>
+            <button type="button" class="item-btn">Add to cart</button>
           </li>
         </ul>
 
-        <ul class="item-section">
+        <ul class="item-section" id="deli">
           <h3>Deli</h3>
           <li class="item flex flex-row-between">
             <span class="item-name">Cold Cuts</span>
             <span class="item-price">$1.47</span>
-            <button type="button">Add to cart</button>
+            <button type="button" class="item-btn">Add to cart</button>
           </li>
         </ul>
 
-        <ul class="item-section">
+        <ul class="item-section" id="frozen">
           <h3>Frozen</h3>
           <li class="item flex flex-row-between">
             <span class="item-name">Orange Juice</span>
             <span class="item-price">$2.52</span>
-            <button type="button">Add to cart</button>
+            <button type="button" class="item-btn">Add to cart</button>
           </li>
           <li class="item flex flex-row-between">
             <span class="item-name">Ice Cream</span>
             <span class="item-price">$14.08</span>
-            <button type="button">Add to cart</button>
+            <button type="button" class="item-btn">Add to cart</button>
           </li>
           <li class="item flex flex-row-between">
             <span class="item-name">Pizza</span>
             <span class="item-price">$16.61</span>
-            <button type="button">Add to cart</button>
+            <button type="button" class="item-btn">Add to cart</button>
           </li>
         </ul>
       </div>
@@ -79,9 +79,12 @@
     <div id="cartModal" class="modal">
       <div class="modal-content">
         <span class="close-btn">&times;</span>
-        <p>
-          Test modal, please ignore.
-        </p>
+        <h2>Cart</h2>
+        <ul class="modal-list">
+
+        </ul>
+        <button class="clear-btn">Clear</button>
+        <span class="total">Total: $<span class="total-amount">0.00</span></span>
       </div>
     </div>
     <script src="grocer.js"></script>
