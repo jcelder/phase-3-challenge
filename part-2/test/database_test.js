@@ -16,7 +16,6 @@ describe('listProductsBySection()', () => {
   })
   it('should return an array of length 3 when given the dairy section', () => {
     return listPromise.then((results) => {
-      console.log(results)
       expect(results.length).to.equal(3)
     })
   })
@@ -37,6 +36,22 @@ describe('realShoppers()', () => {
   it('Shopper Jon should have 1 order and be in position 1 of the array', () => {
     return realPromise.then((results) => {
       expect(results[1]['number of orders']).to.equal('1')
+    })
+  })
+})
+
+describe('shopperOrders()', () => {
+  const id = '1'
+  let shopperPromise
+  beforeEach('reset the database', (done) => {
+    shopperPromise = initDB()
+      .then(() => shopperOrders(id))
+    done()
+  })
+  it('should return an array of length 2 when given the shopper ID of 1', () => {
+    return shopperPromise.then((results) => {
+      console.log(results)
+      expect(results.length).to.equal(2)
     })
   })
 })
