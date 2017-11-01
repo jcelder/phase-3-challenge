@@ -18,4 +18,8 @@ const realShoppers = () => {
   return db.any(`SELECT shoppers.shopper_name AS "shopper name", COUNT(orders.shopper_id) AS "number of orders"
     FROM orders JOIN shoppers ON (shoppers.shopper_id = orders.shopper_id) GROUP BY shoppers.shopper_name, orders.shopper_id`)
 }
-module.exports = { listProductsBySection, realShoppers }
+
+const shopperOrders = (id) => {
+  return Promise.resolve('Test Promise Please Ignore')
+}
+module.exports = { listProductsBySection, realShoppers, shopperOrders }
