@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "export NODE_ENV='test && mocha --exit'",
-    "db:create": "createdb grocery && psql grocery < db/schema.sql",
+    "db:create": "createdb grocery && psql grocery < db/schema.sql && psql grocery < db/load-data.sql",
     "db:reset": "dropdb grocery && npm run db:create"
   },
   "keywords": [],
