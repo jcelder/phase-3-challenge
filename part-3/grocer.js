@@ -5,7 +5,7 @@ const closeBtn = document.querySelector('.close-btn')
 const clearBtn = document.querySelector('.clear-btn')
 const addBtns = document.querySelectorAll('.item-btn')
 
-//
+// Element Selectors
 const modal = document.getElementById('cartModal')
 const modalList = document.querySelector('.modal-list')
 const counter = document.getElementById('cart-item-count')
